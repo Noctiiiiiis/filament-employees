@@ -23,7 +23,12 @@ class StateResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Card::make()
+                    ->schema([
+                        
+                        TextInput::make('country_code'),
+                        TextInput::make('name'),
+                    ])
             ]);
     }
 
