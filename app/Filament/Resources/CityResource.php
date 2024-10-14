@@ -12,6 +12,10 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Card;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 
 class CityResource extends Resource
 {
@@ -23,7 +27,12 @@ class CityResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Card::make()
+                    ->schema([
+                        Select::make('state_id',)
+                            ->relationship('state', 'name'),
+                        TextInput::make('name')
+                    ])
             ]);
     }
 
@@ -31,7 +40,10 @@ class CityResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('state.name')->sortable(),
+                TextColumn::make('created_at')->dateTime()
             ])
             ->filters([
                 //
