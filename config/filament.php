@@ -14,11 +14,10 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 return [
-//     'watermark' => [
-//     'enabled' => false,
-//     'image' => 'path/to/your/logo.png', // Specify a custom logo
-//     'opacity' => 0.5, // Change the opacity if desired
-// ],
+    'watermark' => [
+    'enabled' => false,
+    
+],
 
 'branding' => [
         'title' => 'Your App Title', // Set your app title here
